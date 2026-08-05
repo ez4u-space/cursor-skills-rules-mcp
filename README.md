@@ -54,4 +54,4 @@
 ## Лицензии
 
 Этот репозиторий содержит **только** инструкции и метаданные.  
-Каждый skill/плагин распространяется на условиях **своего** upstream (см. ATTRIBUTION). Skills Anthropic (`pdf`, `docx`) устанавливаются пользователем напрямую из [anthropics/skills](https://github.com/anthropics/skills); мы их не переиздаём.
+Каждый skill/плагин распространяется на условиях **своего** upstream (см. ATTRIBUTION). Skills Anthropic (`pdf`, `docx`, `pptx`, `xlsx`, design/MCP и др.) и OpenAI (`gh-fix-ci`, security, `playwright` и др.) устанавливаются пользователем напрямую из [anthropics/skills](https://github.com/anthropics/skills) и [openai/skills](https://github.com/openai/skills); мы их не переиздаём.

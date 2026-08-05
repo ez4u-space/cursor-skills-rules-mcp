@@ -13,8 +13,23 @@
 | web-design-guidelines | Vercel Labs | https://github.com/vercel-labs/agent-skills | см. репозиторий |
 | deploy-to-vercel | Vercel Labs | https://github.com/vercel-labs/agent-skills | см. репозиторий |
 | frontend-design | Anthropic | https://github.com/anthropics/skills | Apache-2.0 |
+| skill-creator | Anthropic | https://github.com/anthropics/skills | Apache-2.0 |
 | pdf | Anthropic | https://github.com/anthropics/skills | условия Anthropic (не переиздавать) |
 | docx | Anthropic | https://github.com/anthropics/skills | условия Anthropic (не переиздавать) |
+| pptx | Anthropic | https://github.com/anthropics/skills | условия Anthropic (не переиздавать) |
+| xlsx | Anthropic | https://github.com/anthropics/skills | условия Anthropic (не переиздавать) |
+| doc-coauthoring | Anthropic | https://github.com/anthropics/skills | Apache-2.0 |
+| webapp-testing | Anthropic | https://github.com/anthropics/skills | Apache-2.0 |
+| mcp-builder | Anthropic | https://github.com/anthropics/skills | Apache-2.0 |
+| canvas-design | Anthropic | https://github.com/anthropics/skills | Apache-2.0 |
+| web-artifacts-builder | Anthropic | https://github.com/anthropics/skills | Apache-2.0 |
+| theme-factory | Anthropic | https://github.com/anthropics/skills | Apache-2.0 |
+| gh-fix-ci | OpenAI | https://github.com/openai/skills | см. репозиторий |
+| security-best-practices | OpenAI | https://github.com/openai/skills | см. репозиторий |
+| security-threat-model | OpenAI | https://github.com/openai/skills | см. репозиторий |
+| playwright | OpenAI | https://github.com/openai/skills | см. репозиторий |
+| gh-address-comments | OpenAI | https://github.com/openai/skills | см. репозиторий |
+| yeet | OpenAI | https://github.com/openai/skills | см. репозиторий |
 | tdd | Matt Pocock | https://github.com/mattpocock/skills | см. репозиторий |
 | systematic-debugging | Jesse Vincent (obra) | https://github.com/obra/superpowers | MIT |
 | ui-ux-pro-max | nextlevelbuilder | https://github.com/nextlevelbuilder/ui-ux-pro-max-skill | см. репозиторий |
@@ -33,6 +48,7 @@
 - **Figma** и **Supabase** Cursor-плагины — опциональны и часто нужны только под конкретные проекты.
 - Встроенные skills Cursor (`create-rule`, `canvas`, ...) — поставляются с Cursor.
 - Личные VS Code/Cursor extensions.
+- Узконишевые каталоги (finance, life sciences, Zoom SDK и т.п.).
 
 ## Как собран список
 

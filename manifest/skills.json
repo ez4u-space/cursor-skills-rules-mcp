@@ -73,6 +73,16 @@
       "notes": "Плагин example-skills в upstream."
     },
     {
+      "id": "skill-creator",
+      "name": "Skill Creator",
+      "source": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills",
+      "install": "npx skills add anthropics/skills@skill-creator -g -y",
+      "license": "Apache-2.0",
+      "required": true,
+      "notes": ""
+    },
+    {
       "id": "pdf",
       "name": "PDF",
       "source": "anthropics/skills",
@@ -91,6 +101,146 @@
       "license": "Anthropic skill terms (install from upstream only)",
       "required": true,
       "notes": "Ставить только из оригинала Anthropic. Не копировать и не переиздавать содержимое skill."
+    },
+    {
+      "id": "pptx",
+      "name": "PPTX",
+      "source": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills",
+      "install": "npx skills add anthropics/skills@pptx -g -y",
+      "license": "Anthropic skill terms (install from upstream only)",
+      "required": true,
+      "notes": "Ставить только из оригинала Anthropic. Не копировать и не переиздавать содержимое skill."
+    },
+    {
+      "id": "xlsx",
+      "name": "XLSX",
+      "source": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills",
+      "install": "npx skills add anthropics/skills@xlsx -g -y",
+      "license": "Anthropic skill terms (install from upstream only)",
+      "required": true,
+      "notes": "Ставить только из оригинала Anthropic. Не копировать и не переиздавать содержимое skill."
+    },
+    {
+      "id": "doc-coauthoring",
+      "name": "Doc Coauthoring",
+      "source": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills",
+      "install": "npx skills add anthropics/skills@doc-coauthoring -g -y",
+      "license": "Apache-2.0",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "id": "webapp-testing",
+      "name": "Webapp Testing",
+      "source": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills",
+      "install": "npx skills add anthropics/skills@webapp-testing -g -y",
+      "license": "Apache-2.0",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "id": "mcp-builder",
+      "name": "MCP Builder",
+      "source": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills",
+      "install": "npx skills add anthropics/skills@mcp-builder -g -y",
+      "license": "Apache-2.0",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "id": "canvas-design",
+      "name": "Canvas Design",
+      "source": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills",
+      "install": "npx skills add anthropics/skills@canvas-design -g -y",
+      "license": "Apache-2.0",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "id": "web-artifacts-builder",
+      "name": "Web Artifacts Builder",
+      "source": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills",
+      "install": "npx skills add anthropics/skills@web-artifacts-builder -g -y",
+      "license": "Apache-2.0",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "id": "theme-factory",
+      "name": "Theme Factory",
+      "source": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills",
+      "install": "npx skills add anthropics/skills@theme-factory -g -y",
+      "license": "Apache-2.0",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "id": "gh-fix-ci",
+      "name": "GH Fix CI",
+      "source": "openai/skills",
+      "sourceUrl": "https://github.com/openai/skills",
+      "install": "npx skills add openai/skills@gh-fix-ci -g -y",
+      "license": "See upstream repository",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "id": "security-best-practices",
+      "name": "Security Best Practices",
+      "source": "openai/skills",
+      "sourceUrl": "https://github.com/openai/skills",
+      "install": "npx skills add openai/skills@security-best-practices -g -y",
+      "license": "See upstream repository",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "id": "security-threat-model",
+      "name": "Security Threat Model",
+      "source": "openai/skills",
+      "sourceUrl": "https://github.com/openai/skills",
+      "install": "npx skills add openai/skills@security-threat-model -g -y",
+      "license": "See upstream repository",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "id": "playwright",
+      "name": "Playwright",
+      "source": "openai/skills",
+      "sourceUrl": "https://github.com/openai/skills",
+      "install": "npx skills add openai/skills@playwright -g -y",
+      "license": "See upstream repository",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "id": "gh-address-comments",
+      "name": "GH Address Comments",
+      "source": "openai/skills",
+      "sourceUrl": "https://github.com/openai/skills",
+      "install": "npx skills add openai/skills@gh-address-comments -g -y",
+      "license": "See upstream repository",
+      "required": true,
+      "notes": ""
+    },
+    {
+      "id": "yeet",
+      "name": "Yeet",
+      "source": "openai/skills",
+      "sourceUrl": "https://github.com/openai/skills",
+      "install": "npx skills add openai/skills@yeet -g -y",
+      "license": "See upstream repository",
+      "required": true,
+      "notes": "Stage → commit → push → PR через gh CLI."
     },
     {
       "id": "tdd",
