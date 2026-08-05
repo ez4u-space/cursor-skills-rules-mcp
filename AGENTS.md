@@ -1,87 +1,60 @@
-﻿# Инструкция для ИИ-агента: установка Cursor Skills Pack
+﻿# Инструкция для ИИ-агента: Skills + Rules + MCP
 
-Этот репозиторий — **каталог**, не архив файлов. Не копируй `SKILL.md` и ассеты в домашний каталог пользователя из git. Ставь всё **из оригинальных источников** по манифестам.
+Репозиторий: https://github.com/ez4u-space/cursor-skills-rules-mcp
+
+Это **каталог**, не архив skills. Чужие `SKILL.md` **не** копируй из git и **не** коммить обратно. Skills ставь **из оригиналов** по `manifest/skills.json`. Rules и MCP — из `package/`.
 
 ## Когда запускать
 
-Пользователь просит установить скиллы из этого репо / «install skills pack», **в том числе если дал только ссылку** на GitHub (например `https://github.com/ez4u-space/cursor-skills-pack`) — без предварительного clone.
+Пользователь просит установить пак / skills+rules+mcp / дал ссылку на этот репозиторий.
 
-## Протокол (строго по шагам)
+## Протокол
 
-### 0. Достань инструкции (если есть только ссылка)
+### 0. Достань репо
 
-Если репозиторий **ещё не открыт** в workspace:
+Если workspace не этот репо — clone или читай сырые файлы с GitHub:
 
-1. Склонируй во временную или удобную папку (`git clone <url>`) **или** прочитай с GitHub сырые файлы:
-   - `AGENTS.md` (этот файл)
-   - `manifest/skills.json`
-   - `manifest/plugins.json`
-2. Дальше действуй по протоколу ниже. Clone нужен только чтобы прочитать манифест — **не** чтобы копировать skills из репо.
+- `AGENTS.md`, `manifest/skills.json`, `manifest/plugins.json`
+- `package/rules/*`, `package/mcp/mcp.example.json`
 
-Если репо уже открыто в Cursor — просто читай локальные файлы.
+### 1. Skills
 
-### 1. Прочитай манифесты
+1. Проверь Node/`npx`.
+2. Для каждой записи в `manifest/skills.json` с `required: true` выполни поле `install`.
+3. При ошибке — зафиксируй и продолжай.
+4. Не вендори skills в git.
 
-- `manifest/skills.json`
-- `manifest/plugins.json`
+### 2. Rules
 
-Список skills и плагинов бери **только** оттуда. Не дополняй «от себя», не пропускай `required: true` без явной просьбы пользователя.
+Скопируй `package/rules/*` → `~/.cursor/rules/` (создай каталог при необходимости).
 
-### 2. Проверь окружение
+### 3. MCP
 
-- Нужны Node.js и `npx` (для Skills CLI).
-- Команда проверки: `node -v` и `npx --yes skills --help` (или `npx skills --help`).
-- Если Node/`npx` нет — остановись, объясни как поставить Node LTS, не имитируй успех.
+1. Если есть `~/.cursor/mcp.json` — сделай backup.
+2. Запиши `package/mcp/mcp.example.json` в `~/.cursor/mcp.json`, подставив username/HOME.
+3. **Никогда** не вставляй PAT/ключи в файл — только `${env:GITHUB_PAT}`.
+4. Скопируй `package/mcp/MCP_GUIDE.md` → `~/.cursor/MCP_GUIDE.md`.
 
-### 3. Установи skills
+Альтернатива: запусти `install.ps1` / `install.sh` из корня репо.
 
-Для каждой записи в `manifest/skills.json` → `skills[]`:
+### 4. Superpowers
 
-1. Выполни поле `install` как есть (shell).
-2. При ошибке: зафиксируй `id`, stderr/краткую причину, **продолжи** со следующим.
-3. Учитывай `notes` (fallback-команды, auth LobeHub и т.д.).
-4. Не коммить и не копируй установленные skills обратно в этот репозиторий.
+Попроси пользователя: `/add-plugin superpowers` в Agent-чате, дождись подтверждения.
 
-Ожидаемое расположение после глобальной установки Skills CLI: пользовательские каталоги агентов (часто `~/.agents/skills`).
+### 5. Отчёт
 
-### 4. Плагин Superpowers
+| компонент | статус |
+|---|---|
+| skills (по id) | ok / fail |
+| rules | ok / fail |
+| mcp | ok / fail |
+| Superpowers | waiting user |
 
-Из `manifest/plugins.json`:
+Напомни перезапуск Cursor и `GITHUB_PAT`.
 
-1. Сообщи пользователю automated-шаг: в **Agent chat** выполнить `/add-plugin superpowers` (или `/plugin-add superpowers`).
-2. Это действие выполняет **пользователь** в UI Cursor (агент не может надёжно нажать slash-команду за него). Попроси подтвердить, когда установка завершена.
-3. Если slash-команда не работает — выдай `manualUi` по шагам и снова жди подтверждения.
-4. Опционально напомни `verify` из манифеста (новый чат: «Do you have superpowers?»).
+## Чего не делать
 
-Не устанавливай Figma, Supabase или другие плагины — их нет в манифесте.
-
-### 5. Финальный отчёт
-
-Выведи таблицу:
-
-| id | тип | статус | комментарий |
-|---|---|---|---|
-| … | skill / plugin | ok / fail / skipped | … |
-
-Добавь:
-
-- Сколько ok / fail.
-- Если были fail — что сделать вручную (команда из `install` или UI).
-- Рекомендация: перезапустить Cursor, если skills/плагин не видны сразу.
-
-### 6. Чего не делать
-
-- Не вендорить и не зеркалить чужие skills в git.
-- Не ставить личные VS Code/Cursor extensions пользователя.
-- Не ставить встроенные `skills-cursor` Cursor — они уже в продукте.
-- Не нарушать лицензии: Anthropic `pdf`/`docx` — только установка из upstream, без переиздания содержимого.
-
-## Готовые триггеры от пользователя
-
-Только ссылка:
-
-> Установи мне скиллы из https://github.com/ez4u-space/cursor-skills-pack — следуй AGENTS.md в том репо.
-
-Репо уже открыто:
-
-> Прочитай AGENTS.md и установи все skills и плагины по манифестам.
+- Не копировать skills из репо в `~/.agents/skills` (их там нет — только манифест).
+- Не создавать `package/skills/` и не коммитить чужие skills.
+- Не ставить Figma/Supabase/личные extensions.
+- Не печатать и не коммитить секреты.

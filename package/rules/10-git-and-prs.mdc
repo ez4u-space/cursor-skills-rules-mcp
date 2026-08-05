@@ -1,0 +1,26 @@
+---
+description: Git commits и pull requests через gh — безопасный протокол
+alwaysApply: true
+---
+
+# Git и Pull Requests
+
+## Коммиты
+
+- Коммитить только по явной просьбе пользователя.
+- Не обновлять git config; не делать destructive git (force push, hard reset) без явного запроса.
+- Не пропускать hooks (`--no-verify` и т.п.) без явного запроса.
+- Не force-push в main/master; предупреждать при такой просьбе.
+- `commit --amend` только при явной просьбе / auto-fix hook после вашего успешного коммита, и если коммит ещё не запушен.
+- Перед коммитом: `git status`, `git diff`, `git log` (стиль сообщений).
+- Сообщение коммита — 1–2 предложения, фокус на «почему».
+- Не коммитить секреты (`.env`, credentials).
+- После коммита — `git status` для проверки.
+
+## Pull Requests
+
+- Для GitHub использовать `gh`.
+- Перед PR: status, diff, tracking remote, log + diff от base.
+- Push с `-u` при необходимости; `gh pr create` с Summary и Test plan.
+- Вернуть URL PR пользователю.
+- Не пушить без явной просьбы (кроме случая, когда пользователь просит создать PR).

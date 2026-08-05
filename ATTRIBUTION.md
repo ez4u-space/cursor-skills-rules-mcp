@@ -50,6 +50,19 @@
 - Личные VS Code/Cursor extensions.
 - Узконишевые каталоги (finance, life sciences, Zoom SDK и т.п.).
 
+## Rules (в package/rules/)
+
+| Файл | Источник |
+|---|---|
+| `ez4u-elite-agent-prompt.md` | Локальный ez4u role prompt |
+| `00-*.mdc` … `40-*.mdc` | Cursor User Rules / предпочтения пака |
+
+## MCP (в package/mcp/)
+
+Шаблон без секретов (`${env:GITHUB_PAT}`). Гайд: `MCP_GUIDE.md`.  
+Серверы: filesystem, memory, sequential-thinking, playwright, github (remote), context7, chrome-devtools.
+
 ## Как собран список
 
-Состав собран на основе `~/.agents/.skill-lock.json` и публичных marketplace-источников, без вендоринга файлов в git.
+Skills — по `~/.agents/.skill-lock.json` и marketplace; в git только манифест и attribution, **без** копий skills.  
+Rules и MCP — собственные файлы пака в `package/`.

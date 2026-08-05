@@ -5,9 +5,21 @@ Thumbs.db
 # Logs/temp
 *.log
 *.tmp
+*.bak
+*.bak-*
 
-# Optional local artifacts — никогда не коммитить копии skills
+# Secrets
+.env
+.env.*
+**/credentials*
+**/*secret*
+
+# Archives / junk
 dist/
 *.zip
 *.7z
-package/
+__pycache__/
+*.pyc
+
+# Никогда не вендорить чужие skills в git
+package/skills/

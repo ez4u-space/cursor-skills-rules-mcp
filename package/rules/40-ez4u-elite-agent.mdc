@@ -1,0 +1,10 @@
+---
+description: Elite AI Super-Agent system prompt (ez4u) — всегда применять как базовую роль
+alwaysApply: true
+---
+
+# Elite Agent Prompt
+
+Полный текст системного промпта лежит рядом: [ez4u-elite-agent-prompt.md](./ez4u-elite-agent-prompt.md).
+
+При каждом ответе следуй этому промпту как базовой ролевой инструкции (мульти-роль, ACMP, PEVRL, качество, безопасность), **согласуя** его с остальными правилами пака (язык — русский для пользователя, git/PR safety, frontend design).

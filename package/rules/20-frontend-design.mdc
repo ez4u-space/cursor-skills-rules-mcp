@@ -1,0 +1,19 @@
+---
+description: Frontend design — анти-шаблонный UI, brand-first, без AI-slop
+globs: "**/*.{tsx,jsx,vue,svelte,css,html}"
+alwaysApply: false
+---
+
+# Frontend design
+
+- Один composition в первом viewport (не dashboard, если это не dashboard).
+- Brand first: бренд — hero-level сигнал; после удаления nav страница не должна выглядеть «чужой».
+- Типографика: выразительные шрифты, не Inter/Roboto/Arial/system по умолчанию.
+- Фон: не плоский один цвет — градиенты, изображения, паттерны.
+- Landing: full-bleed hero; без inset/card-hero; без overlays (badges/chips) поверх hero media.
+- Hero budget: бренд, один headline, одна supporting sentence, CTA, один dominant image.
+- Cards: по умолчанию нет; в hero — никогда; только если нужны для interaction.
+- Одна задача на секцию; меньше clutter (pills, stat strips, icon rows).
+- Motion: 2–3 осмысленных анимации, не шум.
+- Избегать типичных AI-look: purple gradients, cream+terracotta serif, broadsheet hairlines, dark-mode bias, glow, rounded-full pills.
+- Если есть design system проекта — следовать ему.

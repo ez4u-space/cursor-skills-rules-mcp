@@ -1,57 +1,61 @@
-﻿# Cursor Skills Pack
+﻿# Cursor Skills + Rules + MCP
 
-Каталог публичных **agent skills** (и одного полезного плагина) для воспроизводимой установки из **оригинальных** источников, без копирования чужих файлов в git.
+Каталог для воспроизводимой установки сетапа Cursor:
 
-## Как поставить (через ИИ в Cursor)
+- **Skills** — только из **оригинальных** источников (`npx skills add …`), без копий в git  
+- **Rules** — ваши `.mdc` / prompt в `package/rules/`  
+- **MCP** — шаблон `package/mcp/mcp.example.json` + гайд  
 
-### Вариант A — только ссылка (удобнее всего)
+Репозиторий: https://github.com/ez4u-space/cursor-skills-rules-mcp
 
-В любом Agent-чате Cursor вставь:
-
-```text
-Установи мне скиллы из https://github.com/ez4u-space/cursor-skills-pack — следуй AGENTS.md в том репо.
-```
-
-Агент сам достанет `AGENTS.md` и манифесты (clone или чтение с GitHub) и поставит skills из **оригинальных** источников. Репозиторий заранее открывать не обязательно.
-
-### Вариант B — репо уже открыто в Cursor
+## Установка через ИИ
 
 ```text
-Прочитай AGENTS.md и установи все skills и плагины по манифестам.
+Установи мне пак из https://github.com/ez4u-space/cursor-skills-rules-mcp — следуй AGENTS.md
 ```
 
-### После установки
+Или если репо уже открыто:
 
-1. Дождись отчёта агента.
-2. Для **Superpowers** выполни в Agent-чате `/add-plugin superpowers` (или Marketplace), когда агент попросит, и подтверди.
-3. При необходимости перезапусти Cursor.
+```text
+Прочитай AGENTS.md и установи skills, rules и MCP по манифестам и package/
+```
 
-## Что ставится
+## Установка скриптом
 
-- Skills из `manifest/skills.json` — через `npx skills add ...` (и LobeHub CLI для одного пакета).
-- Плагин **Superpowers** из `manifest/plugins.json`.
+```powershell
+git clone https://github.com/ez4u-space/cursor-skills-rules-mcp.git
+cd cursor-skills-rules-mcp
+powershell -ExecutionPolicy Bypass -File .\install.ps1
+```
 
-**Не входит:** Figma, Supabase, личные VS Code-расширения, встроенные skills Cursor.
+```bash
+git clone https://github.com/ez4u-space/cursor-skills-rules-mcp.git
+cd cursor-skills-rules-mcp
+chmod +x install.sh && ./install.sh
+```
 
-Подробности и авторы: [ATTRIBUTION.md](./ATTRIBUTION.md).  
-Протокол для агента: [AGENTS.md](./AGENTS.md).
+После установки перезапустите Cursor. Для GitHub MCP задайте `GITHUB_PAT`.  
+Superpowers: в Agent-чате `/add-plugin superpowers`.
 
-## Требования
+## Структура
 
-- [Cursor](https://cursor.com/)
-- [Node.js](https://nodejs.org/) (чтобы работал `npx`)
+| Путь | Роль |
+|---|---|
+| `manifest/skills.json` | Список skills + команды `install` |
+| `manifest/plugins.json` | Superpowers |
+| `package/rules/` | Cursor rules → `~/.cursor/rules/` |
+| `package/mcp/` | Пример MCP + гайд |
+| `AGENTS.md` | Протокол для ИИ-агента |
+| `install.ps1` / `install.sh` | Установщики |
 
-## Обновление списка
+**Запрещено класть в git:** папки чужих skills (`package/skills/` в `.gitignore`).
 
-Если на своей машине добавил/убрал публичный skill:
+## Обновление (мейнтейнер)
 
-1. Обнови `manifest/skills.json` (или `plugins.json`).
-2. Обнови `ATTRIBUTION.md`.
-3. Закоммить и запушь.
+1. Добавил skill локально → запись в `manifest/skills.json` + строка в `ATTRIBUTION.md`.  
+2. Rules/MCP → правь `package/rules` / `package/mcp`.  
+3. Commit + push. Skills файлами не коммитить.
 
-Не клади содержимое skills в репозиторий — только манифест и ссылки на оригинал.
+## Авторы
 
-## Лицензии
-
-Этот репозиторий содержит **только** инструкции и метаданные.  
-Каждый skill/плагин распространяется на условиях **своего** upstream (см. ATTRIBUTION). Skills Anthropic (`pdf`, `docx`, `pptx`, `xlsx`, design/MCP и др.) и OpenAI (`gh-fix-ci`, security, `playwright` и др.) устанавливаются пользователем напрямую из [anthropics/skills](https://github.com/anthropics/skills) и [openai/skills](https://github.com/openai/skills); мы их не переиздаём.
+[ATTRIBUTION.md](./ATTRIBUTION.md)
